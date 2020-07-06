@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:todoApp/ui/Notes/notes_page.dart';
 import 'models/global.dart';
 
 void main() {
@@ -35,21 +36,15 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      color: Colors.yellow,
       home: DefaultTabController(
         length: 4,
         child: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topRight,
-                end: Alignment.bottomLeft,
-                colors: [purple, purpleShade]),
-          ),
+          color: backgroundColor,
           child: Scaffold(
             body: Stack(children: <Widget>[
               TabBarView(
                 children: [
-                  new Container(),
+                  NotesPage(),
                   new Container(),
                   new Container(),
                   new Container(),
@@ -57,10 +52,11 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               Container(
                   padding: EdgeInsets.only(left: 40),
-                  height: 175,
+                  height: 165,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     color: Colors.white,
+
                     borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(40),
                         bottomRight: Radius.circular(40)),
@@ -71,7 +67,9 @@ class _MyHomePageState extends State<MyHomePage> {
                       Text(
                         "Notes",
                         style: TextStyle(
-                            fontSize: 40, fontWeight: FontWeight.w700),
+                            fontSize: 40,
+                            fontWeight: FontWeight.w700,
+                        ),
                       ),
                       Container(),
                     ],
@@ -80,10 +78,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   Container(
                     height: 70,
                     width: 70,
-                    margin: EdgeInsets.only(top: 140, left: MediaQuery.of(context).size.width*0.5-35),
+                    margin: EdgeInsets.only(top: 130, left: MediaQuery.of(context).size.width*0.5-35),
 
                     child: FloatingActionButton(
-                      backgroundColor: purple,
+                      backgroundColor: purple1,
                       child: Icon(Icons.add, size: 40),
                       onPressed: () {},
                     ),
@@ -109,11 +107,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     icon: new Icon(Icons.settings),
                   )
                 ],
-                labelColor: purple,
-                unselectedLabelColor: purpleShade,
+                labelColor: purple1,
+                unselectedLabelColor: purpleShade1,
                 indicatorSize: TabBarIndicatorSize.label,
                 indicatorPadding: EdgeInsets.all(5.0),
-                indicatorColor: purple,
+                indicatorColor: purple1,
               ),
             ),
             backgroundColor: Colors.transparent,
